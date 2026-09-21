@@ -1,0 +1,6 @@
+{
+  "name": "Otaku Hub",
+  "description": "Le monde communautaire des fans d'anime et manga : clubs, quiz pédagogiques, tournois, anime battles et progression Otaku.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
