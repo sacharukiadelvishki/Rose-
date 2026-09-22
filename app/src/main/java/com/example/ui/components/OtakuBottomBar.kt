@@ -29,8 +29,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ui.i18n.LocalOtakuStrings
 import com.example.ui.navigation.Screen
 import com.example.ui.theme.OtakuDarkBackground
 import com.example.ui.theme.OtakuDarkBorder
@@ -45,7 +47,7 @@ import com.example.ui.theme.OtakuTextSecondary
 
 data class AnimeNavItem(
     val route: String,
-    val frenchLabel: String,
+    val label: String,
     val japaneseKatakana: String,
     val icon: androidx.compose.ui.graphics.vector.ImageVector
 )
@@ -55,6 +57,8 @@ fun OtakuBottomBar(
     currentRoute: String,
     onNavigateToRoute: (String) -> Unit
 ) {
+    val strings = LocalOtakuStrings.current
+
     Column {
         // Top clean divider line
         Box(
@@ -70,11 +74,11 @@ fun OtakuBottomBar(
             tonalElevation = 3.dp
         ) {
             val items = listOf(
-                AnimeNavItem(Screen.Home.route, "Nexus", "ネクサス", Icons.Default.Home),
-                AnimeNavItem(Screen.Portals.route, "Mondes", "異世界", Icons.Default.AutoAwesome),
-                AnimeNavItem(Screen.Quiz.route, "Arène", "バトル", Icons.Default.SportsKabaddi),
-                AnimeNavItem(Screen.Room.route, "Chambre", "マイルーム", Icons.Default.MeetingRoom),
-                AnimeNavItem(Screen.Profile.route, "Héros", "マイ頁", Icons.Default.Person)
+                AnimeNavItem(Screen.Home.route, strings.navHome, "ネクサス", Icons.Default.Home),
+                AnimeNavItem(Screen.Portals.route, strings.navPortals, "異世界", Icons.Default.AutoAwesome),
+                AnimeNavItem(Screen.Quiz.route, strings.navQuiz, "バトル", Icons.Default.SportsKabaddi),
+                AnimeNavItem(Screen.Room.route, strings.navRoom, "マイルーム", Icons.Default.MeetingRoom),
+                AnimeNavItem(Screen.Profile.route, strings.navProfile, "マイ頁", Icons.Default.Person)
             )
 
             items.forEach { item ->
@@ -85,22 +89,25 @@ fun OtakuBottomBar(
                     icon = {
                         Icon(
                             imageVector = item.icon,
-                            contentDescription = item.frenchLabel,
+                            contentDescription = item.label,
                             modifier = Modifier.size(22.dp)
                         )
                     },
                     label = {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = item.frenchLabel,
+                                text = item.label,
                                 fontSize = 10.sp,
-                                fontWeight = if (isSelected) FontWeight.Black else FontWeight.Normal
+                                fontWeight = if (isSelected) FontWeight.Black else FontWeight.Normal,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                             Text(
                                 text = item.japaneseKatakana,
                                 fontSize = 8.sp,
                                 color = if (isSelected) OtakuSecondary else OtakuTextMuted,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                maxLines = 1
                             )
                         }
                     },

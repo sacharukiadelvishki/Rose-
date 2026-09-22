@@ -10,6 +10,8 @@ val StringsJa = AppStrings(
     navEvents = "イベント",
     navNotifications = "通知",
     navSearch = "発見",
+    navPortals = "次元の門",
+    navRoom = "オタク部屋",
 
     languageDialogTitle = "言語の選択 ✨",
     languageDialogSubtitle = "オタクハブをお好みの言語でお楽しみください。",

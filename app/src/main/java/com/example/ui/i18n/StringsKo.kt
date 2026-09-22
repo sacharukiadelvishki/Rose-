@@ -10,6 +10,8 @@ val StringsKo = AppStrings(
     navEvents = "이벤트",
     navNotifications = "알림",
     navSearch = "탐색",
+    navPortals = "차원의 문",
+    navRoom = "오타쿠 룸",
 
     languageDialogTitle = "언어 선택 ✨",
     languageDialogSubtitle = "오타쿠 허브를 이용할 언어를 선택하세요.",

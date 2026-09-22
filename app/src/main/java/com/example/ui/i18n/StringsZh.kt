@@ -10,6 +10,8 @@ val StringsZh = AppStrings(
     navEvents = "盛典活动",
     navNotifications = "通知",
     navSearch = "发现",
+    navPortals = "次元之门",
+    navRoom = "宅家小屋",
 
     languageDialogTitle = "选择语言 ✨",
     languageDialogSubtitle = "选择您喜欢的语言畅游御宅中心。",

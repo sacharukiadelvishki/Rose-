@@ -13,6 +13,8 @@ data class AppStrings(
     val navEvents: String,
     val navNotifications: String,
     val navSearch: String,
+    val navPortals: String,
+    val navRoom: String,
 
     // Language Dialog
     val languageDialogTitle: String,

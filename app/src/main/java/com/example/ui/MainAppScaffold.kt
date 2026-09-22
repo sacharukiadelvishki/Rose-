@@ -80,9 +80,9 @@ fun MainAppScaffold(viewModel: OtakuViewModel) {
     )
 
     val topBarTitle = when (currentRoute) {
-        Screen.Home.route -> "Nexus City ✦"
-        Screen.Portals.route -> "Mondes Dimensionnels 🌌"
-        Screen.Room.route -> "Chambre Otaku 🏠"
+        Screen.Home.route -> strings.navHome
+        Screen.Portals.route -> strings.navPortals
+        Screen.Room.route -> strings.navRoom
         Screen.Clubs.route -> strings.navClubs
         Screen.Quiz.route -> strings.navQuiz
         Screen.Leaderboard.route -> strings.navLeaderboard
@@ -126,6 +126,7 @@ fun MainAppScaffold(viewModel: OtakuViewModel) {
                     canNavigateBack = !isTopLevelRoute,
                     unreadNotificationsCount = unreadNotificationsCount,
                     currentLanguageFlag = currentLanguage.flag,
+                    currentRoute = currentRoute,
                     onOpenLanguage = { showLanguageDialog = true },
                     onNavigateBack = { navController.popBackStack() },
                     onOpenSearch = { navController.navigate(Screen.Search.route) },

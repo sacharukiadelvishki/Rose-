@@ -58,22 +58,35 @@ fun OtakuTopBar(
     canNavigateBack: Boolean,
     unreadNotificationsCount: Int,
     currentLanguageFlag: String = "🇫🇷",
+    currentRoute: String = "",
     onOpenLanguage: () -> Unit = {},
     onNavigateBack: () -> Unit,
     onOpenSearch: () -> Unit,
     onOpenEvents: () -> Unit,
     onOpenNotifications: () -> Unit
 ) {
-    val japaneseSubtitle = when (title) {
-        "Otaku Hub" -> "オタクハブ • 公式ポータル"
-        "Clubs" -> "ギルド • コミュニティ"
-        "Quiz & Duel" -> "クイズ & アニメバトル"
-        "Classement" -> "天下一順位表 • ランキング"
-        "Mon Profil" -> "ハンター証 • マイページ"
-        "Événements" -> "公式大会 • イベント"
-        "Notifications" -> "新着通知 • お知らせ"
-        "Découverte" -> "アニメ検索 • エクスプローラ"
-        else -> "アニメハブ"
+    val japaneseSubtitle = when (currentRoute) {
+        "home" -> "ネクサス・シティ • 公式ポータル"
+        "portals" -> "異世界ゲート • 次元探査"
+        "quiz" -> "クイズ & アニメバトル • 試練"
+        "room" -> "マイルーム • コレクション"
+        "profile" -> "ハンター証 • マイページ"
+        "clubs" -> "ギルド • コミュニティ"
+        "leaderboard" -> "天下一順位表 • ランキング"
+        "events" -> "公式大会 • イベント"
+        "notifications" -> "新着通知 • お知らせ"
+        "search" -> "アニメ検索 • エクスプローラ"
+        else -> when (title) {
+            "Otaku Hub" -> "オタクハブ • 公式ポータル"
+            "Clubs" -> "ギルド • コミュニティ"
+            "Quiz & Duel", "Quiz & Duels", "Quiz & Battle" -> "クイズ & アニメバトル"
+            "Classement", "Leaderboard" -> "天下一順位表 • ランキング"
+            "Mon Profil", "Profile" -> "ハンター証 • マイページ"
+            "Événements", "Events" -> "公式大会 • イベント"
+            "Notifications" -> "新着通知 • お知らせ"
+            "Découverte", "Explore" -> "アニメ検索 • エクスプローラ"
+            else -> "アニメハブ • 公式"
+        }
     }
 
     Column {

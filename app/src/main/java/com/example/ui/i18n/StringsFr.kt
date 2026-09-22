@@ -10,6 +10,8 @@ val StringsFr = AppStrings(
     navEvents = "Événements",
     navNotifications = "Notifications",
     navSearch = "Découverte",
+    navPortals = "Portails des Mondes",
+    navRoom = "Chambre Otaku",
 
     languageDialogTitle = "Choisir la Langue ✨",
     languageDialogSubtitle = "Sélectionne ta langue préférée pour naviguer sur Otaku Hub.",
